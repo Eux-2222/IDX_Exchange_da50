@@ -36,6 +36,50 @@ listings_droped = listings.drop(
         ]
     )
 # step 3
+""" code used for analysis
+critical = [
+    "ClosePrice",
+    "OriginalListPrice",
+    "CloseDate",
+    "ListingContractDate",
+    "PurchaseContractDate",
+    "LivingArea",
+    "Latitude",
+    "Longitude",
+    "CountyOrParish",
+    "City",
+    "PostalCode",
+]
+print(sold_droped[critical].isna().sum()) 
+print(listings_droped[critical].isna().sum()) #leave as is for all columns
+
+# output
+
+ClosePrice                  2
+OriginalListPrice         757
+CloseDate                   0
+ListingContractDate         1
+PurchaseContractDate      195
+LivingArea                234
+Latitude                15948
+Longitude               15948
+CountyOrParish              0
+City                      311
+PostalCode                  2
+dtype: int64
+ClosePrice              426918
+OriginalListPrice          810
+CloseDate               404735
+ListingContractDate          0
+PurchaseContractDate    296868
+LivingArea                 579
+Latitude                 80467
+Longitude                80467
+CountyOrParish               0
+City                       587
+PostalCode                  13
+dtype: int64
+"""
 sold_cleaned = sold_droped[sold_droped['ClosePrice'].notna()] #for sold, remove closeprice nan because there is only 2 rows, leave as is for other columns
 listings_cleaned = listings_droped
 # step 4
